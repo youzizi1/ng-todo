@@ -1,0 +1,21 @@
+<div class="list-container">
+  <ul
+    nz-list
+    [nzDataSource]="taskList"
+    nzBordered
+    [nzRenderItem]="defaultItem"
+    [nzLoading]="loading"
+  >
+    <ng-template #defaultItem let-item>
+      <li
+        nz-list-item
+        [nzActions]="[opAction]"
+        [nzContent]="item.task"
+        nzNoFlex
+      ></li>
+      <ng-template #opAction
+        ><a (click)="deleteTask(item.task)">delete</a></ng-template
+      >
+    </ng-template>
+  </ul>
+</div>
